@@ -76,3 +76,6 @@ def sorteia_questao_inedita(questoes_por_nivel,nivel,questoes_sorteadas):
     questoes_sorteadas.append(questao_inedita)
     return questao_inedita
     
+
+def questao_para_texto(questao, id):
+    return f"----------------------------------------\nQUESTAO {id}\n\n{questao['titulo']}\n\nRESPOSTAS:\nA: {questao['opcoes']['A']}\nB: {questao['opcoes']['B']}\nC: {questao['opcoes']['C']}\nD: {questao['opcoes']['D']}"
