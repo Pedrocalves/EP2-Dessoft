@@ -1,3 +1,5 @@
+import random
+
 def transforma_base(lista):
     dicionario = {}
     if len(lista) == 0:
@@ -60,3 +62,9 @@ def valida_questoes(lista_questoes):
         erros = valida_questao(questao)
         lista_de_erros.append(erros)
     return lista_de_erros
+
+
+def sorteia_questao(questoes_por_nivel,nivel):
+    indice_sorteado = random.randint(0, len(questoes_por_nivel[nivel])-1)
+    return questoes_por_nivel[nivel][indice_sorteado]
+    
