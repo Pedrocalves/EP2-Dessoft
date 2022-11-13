@@ -1,4 +1,6 @@
 import random
+from random import randint
+
 
 def transforma_base(lista):
     dicionario = {}
@@ -79,3 +81,20 @@ def sorteia_questao_inedita(questoes_por_nivel,nivel,questoes_sorteadas):
 
 def questao_para_texto(questao, id):
     return f"----------------------------------------\nQUESTAO {id}\n\n{questao['titulo']}\n\nRESPOSTAS:\nA: {questao['opcoes']['A']}\nB: {questao['opcoes']['B']}\nC: {questao['opcoes']['C']}\nD: {questao['opcoes']['D']}"
+
+
+
+def gera_ajuda(questao):
+    opc = ['A', 'B', 'C', 'D']
+    dicas_sorts = []
+    num_dicas = randint(1, 2)
+    while num_dicas != 0:
+        opc_sorteada =  opc[randint(0, len( opc)-1)]
+        if opc_sorteada != questao['correta'] and opc_sorteada not in dicas_sorts:
+            dicas_sorts.append(questao['opcoes'][opc_sorteada])
+            num_dicas -= 1
+    
+    if len(dicas_sorts) == 1:
+        return f"DICA:\nOpções certamente erradas: {dicas_sorts[0]}"
+    elif len(dicas_sorts) == 2:
+        return f"DICA:\nOpções certamente erradas: {dicas_sorts[0]} | {dicas_sorts[1]}"
