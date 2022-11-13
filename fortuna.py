@@ -52,3 +52,11 @@ def valida_questao(questao):
         if questao['correta'] not in letras:
             erros['correta'] = 'valor_errado'
     return erros 
+
+
+def valida_questoes(lista_questoes):
+    lista_de_erros = []
+    for questao in lista_questoes:
+        erros = valida_questao(questao)
+        lista_de_erros.append(erros)
+    return lista_de_erros
